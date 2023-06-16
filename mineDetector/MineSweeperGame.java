@@ -17,7 +17,7 @@ import javax.swing.Timer;
 public class MineSweeperGame extends JFrame {
     private static final long serialVersionUID = 1L;
     
-	private JButton[][] buttons; // JButton 이차원 배열로, 게임 보드의 각 칸. 사용자가 해당 버튼을 클릭하여 게임을 진행
+    private JButton[][] buttons; // JButton 이차원 배열로, 게임 보드의 각 칸. 사용자가 해당 버튼을 클릭하여 게임을 진행
     private int[][] board; //int 이차원 배열로, 게임 보드의 상태를 저장. -1은 지뢰가 있는 칸을, -2는 이미 열려있는 칸을, 그 외의 숫자는 해당 칸 주변의 지뢰 개수를 나타
     private int boardSize = 0; //게임 보드의 행과 열의 크기를 저장하는 변수
     private int numMines = 0; //게임 보드에 배치될 지뢰의 개수를 저장하는 변수
