@@ -14,34 +14,23 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
  
 
-
-
-
-
-
-
-
-
-
-
 public class MineSweeperGame extends JFrame {
     private static final long serialVersionUID = 1L;
     
 	private JButton[][] buttons; // JButton 이차원 배열로, 게임 보드의 각 칸. 사용자가 해당 버튼을 클릭하여 게임을 진행
-    private int[][] board; //int 이차원 배열로, 게임 보드의 상태를 저장. -1은 지뢰가 있는 칸을, -2는 이미 열려있는 칸을, 그 외의 숫자는 해당 칸 주변의 지뢰 개수를 나타냄
+    private int[][] board; //int 이차원 배열로, 게임 보드의 상태를 저장. -1은 지뢰가 있는 칸을, -2는 이미 열려있는 칸을, 그 외의 숫자는 해당 칸 주변의 지뢰 개수를 나타
     private int boardSize = 0; //게임 보드의 행과 열의 크기를 저장하는 변수
     private int numMines = 0; //게임 보드에 배치될 지뢰의 개수를 저장하는 변수
     private int numRevealed; //현재까지 오픈된 칸의 개수를 저장하는 변수
     private boolean gameOver; //게임이 종료되었는지를 나타내는 불리언 변수
     private boolean checkFirst = true; //첫 번째 클릭을 확인하는 변수, 첫 번째 클릭이 지뢰가 아니라면 주변 칸들을 자동으로 열어주기 위해 사용
-    private int timeLimit; //게임 플레이 시간 제한(초)을 저장하는 변수
+    private int timeLimit; //게임 플레이 시간 제한을 저장하는 변수
     private Timer timer; //게임 플레이 시간을 측정하기 위한 Swing 타이머 객체
-    private int elapsedTime; //경과된 게임 플레이 시간(초)을 저장하는 변수 
+    private int elapsedTime; //경과된 게임 플레이 시간을 저장하는 변수 
     private long maxMines; // 사용자가 지정하는 게임 보드 내 최대 지뢰의 개수 
 
-    
-    public MineSweeperGame() {
-    	//칸 설정 
+	//칸 설정
+    public MineSweeperGame() { 
     	while (true) {
     	    try {
     	        String sizeInput = JOptionPane.showInputDialog("50 이하의 행/열의 수를 입력하세요. (정방행렬입니다) :");
@@ -156,6 +145,7 @@ public class MineSweeperGame extends JFrame {
                 }
     		checkFirst = false;
     	}
+    } 
     	
         if (gameOver || row < 0 || row >= boardSize || col < 0 || col >= boardSize ||  elapsedTime >= timeLimit) {
             return;
@@ -191,6 +181,7 @@ public class MineSweeperGame extends JFrame {
             }
         }
     }
+    //주변 8칸 지뢰수를 확인  
 	private int countMine(int i, int j) {
 	    int count = 0;
 	
